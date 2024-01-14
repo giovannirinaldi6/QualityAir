@@ -1,0 +1,1257 @@
+[
+    {
+        "id": "7186ba0992b0aadf",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "401e419c21469ff7",
+        "type": "mqtt in",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "topic": "esp32/qualutyaircheck99_node1",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "6372a04ee16c6b66",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "4e646d43b4c42e1a",
+                "2a441369bfea233b",
+                "a2d2eac8f9cbcf9e",
+                "678a6092bfeb36ef",
+                "8f82c68b45a89b7d",
+                "614ba42a22e994dc",
+                "7b99115a61babd3b",
+                "9aba757813670322"
+            ]
+        ]
+    },
+    {
+        "id": "4e646d43b4c42e1a",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.humidity",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "86a5d3084254a88c",
+                "cfb5003b15c38606"
+            ]
+        ]
+    },
+    {
+        "id": "2a441369bfea233b",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.temperature",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "0692aff8055b7e09",
+                "a7802c9105d92cc7"
+            ]
+        ]
+    },
+    {
+        "id": "a2d2eac8f9cbcf9e",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "CO",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.CO",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 280,
+        "wires": [
+            [
+                "4dce8ec4781249aa",
+                "3042389a3adfbee6"
+            ]
+        ]
+    },
+    {
+        "id": "4dce8ec4781249aa",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "CO",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "678a6092bfeb36ef",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Alcohol",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.Alcohol",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 340,
+        "wires": [
+            [
+                "1e3f609b2838666f"
+            ]
+        ]
+    },
+    {
+        "id": "1e3f609b2838666f",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Alcohol",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 960,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8f82c68b45a89b7d",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "CO2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.CO2",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 400,
+        "wires": [
+            [
+                "3d52dcd314cac8fa",
+                "6b1eec76307d3b36"
+            ]
+        ]
+    },
+    {
+        "id": "3d52dcd314cac8fa",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "CO2",
+        "label": "ppm",
+        "format": "{{value|number:0}}",
+        "min": "400",
+        "max": "1500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "614ba42a22e994dc",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "NH4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.NH4",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 460,
+        "wires": [
+            [
+                "bb5aa4a53592aafd",
+                "0f4e90fa6871da6e"
+            ]
+        ]
+    },
+    {
+        "id": "bb5aa4a53592aafd",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "NH4",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "7b99115a61babd3b",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Aceton",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.Aceton",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 520,
+        "wires": [
+            [
+                "3428082f3f2a3a37"
+            ]
+        ]
+    },
+    {
+        "id": "3428082f3f2a3a37",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Aceton",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 960,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "3e4029695fd6c210",
+        "type": "mqtt in",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "topic": "esp32/qualutyaircheck99_setting",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "6372a04ee16c6b66",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "3df475c6596082a5"
+            ]
+        ]
+    },
+    {
+        "id": "0692aff8055b7e09",
+        "type": "ui_text",
+        "z": "7186ba0992b0aadf",
+        "group": "3cd142970def4be2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperatura",
+        "format": "{{value|number:1}} °C",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "Times New Roman,Times,serif",
+        "fontSize": "25",
+        "color": "#000000",
+        "x": 950,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "86a5d3084254a88c",
+        "type": "ui_text",
+        "z": "7186ba0992b0aadf",
+        "group": "3cd142970def4be2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Umidità",
+        "format": "{{msg.payload}} %",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "Times New Roman,Times,serif",
+        "fontSize": "25",
+        "color": "#000000",
+        "x": 960,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "24a405a8bd84b6c9",
+        "type": "mqtt in",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "topic": "esp32/qualutyaircheck99_node2",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "6372a04ee16c6b66",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 1120,
+        "wires": [
+            [
+                "467121c0bca8e8de",
+                "fdbea230d4100841",
+                "5e8dc9109d89e20c",
+                "cc8df486dfe74b0c",
+                "cdc1a3a575c2f8b7",
+                "7bd38ed0110ed8e0",
+                "1a484978168af5f3",
+                "65af6c405aeac688"
+            ]
+        ]
+    },
+    {
+        "id": "467121c0bca8e8de",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.humidity",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 860,
+        "wires": [
+            [
+                "1a2aa35a13316316",
+                "cfb5003b15c38606"
+            ]
+        ]
+    },
+    {
+        "id": "fdbea230d4100841",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.temperature",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 920,
+        "wires": [
+            [
+                "986b403c29875f31",
+                "a7802c9105d92cc7"
+            ]
+        ]
+    },
+    {
+        "id": "5e8dc9109d89e20c",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "CO",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.CO",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 980,
+        "wires": [
+            [
+                "a0fe950aa3f2677e",
+                "3042389a3adfbee6"
+            ]
+        ]
+    },
+    {
+        "id": "a0fe950aa3f2677e",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "1e1a7480ab891e29",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "CO",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "cc8df486dfe74b0c",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Alcohol",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.Alcohol",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 1040,
+        "wires": [
+            [
+                "b3597c4dd37c1f61"
+            ]
+        ]
+    },
+    {
+        "id": "b3597c4dd37c1f61",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "1e1a7480ab891e29",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Alcohol",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 960,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "cdc1a3a575c2f8b7",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "CO2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.CO2",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 1100,
+        "wires": [
+            [
+                "e0b6394045419e29",
+                "6b1eec76307d3b36"
+            ]
+        ]
+    },
+    {
+        "id": "e0b6394045419e29",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "1e1a7480ab891e29",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "CO2",
+        "label": "ppm",
+        "format": "{{value|number:0}}",
+        "min": "400",
+        "max": "1500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "7bd38ed0110ed8e0",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "NH4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.NH4",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 1160,
+        "wires": [
+            [
+                "ca36acd43d17c881",
+                "0f4e90fa6871da6e"
+            ]
+        ]
+    },
+    {
+        "id": "ca36acd43d17c881",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "1e1a7480ab891e29",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "NH4",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "1a484978168af5f3",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Aceton",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.Aceton",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 1220,
+        "wires": [
+            [
+                "550ce2b681c61e1a"
+            ]
+        ]
+    },
+    {
+        "id": "550ce2b681c61e1a",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "1e1a7480ab891e29",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Aceton",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 960,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "986b403c29875f31",
+        "type": "ui_text",
+        "z": "7186ba0992b0aadf",
+        "group": "a6899e68a0ac7b12",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperatura",
+        "format": "{{value|number:1}} °C",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "Times New Roman,Times,serif",
+        "fontSize": "25",
+        "color": "#000000",
+        "x": 950,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "1a2aa35a13316316",
+        "type": "ui_text",
+        "z": "7186ba0992b0aadf",
+        "group": "a6899e68a0ac7b12",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Umidità",
+        "format": "{{msg.payload}} %",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "Times New Roman,Times,serif",
+        "fontSize": "25",
+        "color": "#000000",
+        "x": 960,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "3df475c6596082a5",
+        "type": "ui_text",
+        "z": "7186ba0992b0aadf",
+        "group": "5f9998da2066f716",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Stato",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 910,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3869c7acbb41be71",
+        "type": "ui_text",
+        "z": "7186ba0992b0aadf",
+        "group": "5f9998da2066f716",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperatura Media Edificio",
+        "format": "{{value|number:1}} °C",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1140,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a7802c9105d92cc7",
+        "type": "average",
+        "z": "7186ba0992b0aadf",
+        "name": "Temp Media",
+        "topic": "",
+        "x": 870,
+        "y": 640,
+        "wires": [
+            [
+                "3869c7acbb41be71"
+            ]
+        ]
+    },
+    {
+        "id": "cfb5003b15c38606",
+        "type": "average",
+        "z": "7186ba0992b0aadf",
+        "name": "Humidity Media",
+        "topic": "",
+        "x": 880,
+        "y": 600,
+        "wires": [
+            [
+                "cfc3506fd8f4772f"
+            ]
+        ]
+    },
+    {
+        "id": "cfc3506fd8f4772f",
+        "type": "ui_text",
+        "z": "7186ba0992b0aadf",
+        "group": "5f9998da2066f716",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Umidità Media Edificio",
+        "format": "{{msg.payload}} %",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1150,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "3042389a3adfbee6",
+        "type": "average",
+        "z": "7186ba0992b0aadf",
+        "name": "CO Media",
+        "topic": "",
+        "x": 870,
+        "y": 680,
+        "wires": [
+            [
+                "223f628d68e181fc"
+            ]
+        ]
+    },
+    {
+        "id": "6b1eec76307d3b36",
+        "type": "average",
+        "z": "7186ba0992b0aadf",
+        "name": "CO2 Media",
+        "topic": "",
+        "x": 870,
+        "y": 720,
+        "wires": [
+            [
+                "223f628d68e181fc"
+            ]
+        ]
+    },
+    {
+        "id": "0f4e90fa6871da6e",
+        "type": "average",
+        "z": "7186ba0992b0aadf",
+        "name": "NH4 Media",
+        "topic": "",
+        "x": 870,
+        "y": 760,
+        "wires": [
+            [
+                "223f628d68e181fc"
+            ]
+        ]
+    },
+    {
+        "id": "8e96411fc13ead4a",
+        "type": "function",
+        "z": "7186ba0992b0aadf",
+        "name": "function 1",
+        "func": "var alert_co = { payload: \"ATTENZIONE!!! Valori di Monossido di Carbonio troppo alti!\" };\nvar alert_co2 = { payload: \"ATTENZIONE!!! Valori di Anidride Carbonica troppo alti!\" };\nvar alert = { payload: \"ATTENZIONE!!! Qualità dell'aria PESSIMA!!!\" };\n\nif (msg.payload[0]>100 && msg.payload[1]>1500)\n    return alert;\n\n\nif (msg.payload[0]>100)\n    return alert_co;\n\nif (msg.payload[1]>1500)\n    return alert_co2;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 720,
+        "wires": [
+            [
+                "e613e03cc651e656"
+            ]
+        ]
+    },
+    {
+        "id": "223f628d68e181fc",
+        "type": "join",
+        "z": "7186ba0992b0aadf",
+        "name": "Join",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 1070,
+        "y": 720,
+        "wires": [
+            [
+                "8e96411fc13ead4a"
+            ]
+        ]
+    },
+    {
+        "id": "e613e03cc651e656",
+        "type": "ui_toast",
+        "z": "7186ba0992b0aadf",
+        "position": "dialog",
+        "displayTime": "10",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1230,
+        "y": 880,
+        "wires": [
+            []
+        ],
+        "icon": "font-awesome/fa-warning"
+    },
+    {
+        "id": "0e3e1cbfbb74166d",
+        "type": "inject",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "fc013c2968346c6e"
+            ]
+        ]
+    },
+    {
+        "id": "fc013c2968346c6e",
+        "type": "function",
+        "z": "7186ba0992b0aadf",
+        "name": "Data e Orario",
+        "func": "var timestamp = msg.payload;\nconst date = new Date(timestamp);\nconst formattedDate = date.toLocaleDateString('it-IT', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour:'numeric', minute:'numeric', second:'numeric'});\nvar date_format = { payload: formattedDate };\nreturn date_format;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "c60eb088256e187f"
+            ]
+        ]
+    },
+    {
+        "id": "c60eb088256e187f",
+        "type": "ui_text",
+        "z": "7186ba0992b0aadf",
+        "group": "5f9998da2066f716",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "x": 910,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9aba757813670322",
+        "type": "debug",
+        "z": "7186ba0992b0aadf",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "65af6c405aeac688",
+        "type": "debug",
+        "z": "7186ba0992b0aadf",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "6372a04ee16c6b66",
+        "type": "mqtt-broker",
+        "name": "Prova",
+        "broker": "*************",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c5b1ef180abf2dce",
+        "type": "ui_group",
+        "name": "MQ135",
+        "tab": "192545bdac273bcc",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "3cd142970def4be2",
+        "type": "ui_group",
+        "name": "DHT11",
+        "tab": "192545bdac273bcc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "1e1a7480ab891e29",
+        "type": "ui_group",
+        "name": "MQ135",
+        "tab": "edf318a16a019211",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a6899e68a0ac7b12",
+        "type": "ui_group",
+        "name": "DHT11",
+        "tab": "edf318a16a019211",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5f9998da2066f716",
+        "type": "ui_group",
+        "name": "Home",
+        "tab": "1c525b390f8873b2",
+        "order": 1,
+        "disp": true,
+        "width": 15,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "192545bdac273bcc",
+        "type": "ui_tab",
+        "name": "Nodo-1",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "edf318a16a019211",
+        "type": "ui_tab",
+        "name": "Nodo-2",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1c525b390f8873b2",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

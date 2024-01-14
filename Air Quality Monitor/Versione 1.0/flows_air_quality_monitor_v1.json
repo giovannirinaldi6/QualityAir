@@ -1,0 +1,644 @@
+[
+    {
+        "id": "7186ba0992b0aadf",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "401e419c21469ff7",
+        "type": "mqtt in",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "topic": "esp32/qualutyaircheck99",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "6372a04ee16c6b66",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1190,
+        "y": 300,
+        "wires": [
+            [
+                "d4d28b228edda34d"
+            ]
+        ]
+    },
+    {
+        "id": "e830fe9b5424ac47",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "3cd142970def4be2",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidità",
+        "label": "%",
+        "format": "{{value|number:0}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 860,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d4d28b228edda34d",
+        "type": "debug",
+        "z": "7186ba0992b0aadf",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1320,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "baabf2f97d4acd52",
+        "type": "debug",
+        "z": "7186ba0992b0aadf",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "808f63edd43fd47b",
+        "type": "inject",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "{\"humidity\":56,\"temperature\":22.252543,\"hic\":20.8375721,\"CO\":17.95752144,\"Alcohol\":4.508376598,\"CO2\":408.565033,\"Toluen\":2.069992781,\"NH4\":11.21696281,\"Aceton\":1.708781362}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 400,
+        "wires": [
+            [
+                "baabf2f97d4acd52",
+                "4e646d43b4c42e1a",
+                "2a441369bfea233b",
+                "a2d2eac8f9cbcf9e",
+                "678a6092bfeb36ef",
+                "8f82c68b45a89b7d",
+                "6d382066920c47e7",
+                "614ba42a22e994dc",
+                "7b99115a61babd3b"
+            ]
+        ]
+    },
+    {
+        "id": "4e646d43b4c42e1a",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.humidity",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "e830fe9b5424ac47"
+            ]
+        ]
+    },
+    {
+        "id": "2a441369bfea233b",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.temperature",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "be4cf1674f548273",
+                "95fc2693cba6b912"
+            ]
+        ]
+    },
+    {
+        "id": "be4cf1674f548273",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "3cd142970def4be2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "C",
+        "format": "{{value|number:1}}",
+        "min": "-5",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1090,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a2d2eac8f9cbcf9e",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "CO",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.CO",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 320,
+        "wires": [
+            [
+                "4dce8ec4781249aa"
+            ]
+        ]
+    },
+    {
+        "id": "4dce8ec4781249aa",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "678a6092bfeb36ef",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Alcohol",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.Alcohol",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 380,
+        "wires": [
+            [
+                "1e3f609b2838666f"
+            ]
+        ]
+    },
+    {
+        "id": "1e3f609b2838666f",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Alcohol",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 840,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "8f82c68b45a89b7d",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "CO2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.CO2",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 440,
+        "wires": [
+            [
+                "3d52dcd314cac8fa"
+            ]
+        ]
+    },
+    {
+        "id": "3d52dcd314cac8fa",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO2",
+        "label": "ppm",
+        "format": "{{value|number:0}}",
+        "min": "400",
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "6d382066920c47e7",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Toluen",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.Toluen",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 500,
+        "wires": [
+            [
+                "a68e8cdd0de1e48d"
+            ]
+        ]
+    },
+    {
+        "id": "a68e8cdd0de1e48d",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Toluen",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "614ba42a22e994dc",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "NH4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.NH4",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 560,
+        "wires": [
+            [
+                "bb5aa4a53592aafd"
+            ]
+        ]
+    },
+    {
+        "id": "bb5aa4a53592aafd",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "NH4",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "7b99115a61babd3b",
+        "type": "change",
+        "z": "7186ba0992b0aadf",
+        "name": "Aceton",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.Aceton",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 620,
+        "wires": [
+            [
+                "3428082f3f2a3a37"
+            ]
+        ]
+    },
+    {
+        "id": "3428082f3f2a3a37",
+        "type": "ui_gauge",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "c5b1ef180abf2dce",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Aceton",
+        "label": "ppm",
+        "format": "{{value|number:2}}",
+        "min": "-5",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 840,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "95fc2693cba6b912",
+        "type": "ui_chart",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "3cd142970def4be2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1090,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6372a04ee16c6b66",
+        "type": "mqtt-broker",
+        "name": "Prova",
+        "broker": "*************",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3cd142970def4be2",
+        "type": "ui_group",
+        "name": "DHT11",
+        "tab": "192545bdac273bcc",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "c5b1ef180abf2dce",
+        "type": "ui_group",
+        "name": "MQ135",
+        "tab": "192545bdac273bcc",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "192545bdac273bcc",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
