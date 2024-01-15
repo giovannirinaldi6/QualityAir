@@ -34,3 +34,11 @@ Collegare il sensore DHT11 al pin 4. Il sensore MQ-135 al pin 33.
 - ArduinoJson.h
 - DHT.h
 - MQUnifiedsensor.h
+
+## Istruzioni
+Dopo aver effettuato i collegamenti hardware, su tutte le schede ESP32 configurare le impostazioni per la connessione al WiFi (SSID e PASSWORD).
+Inoltre impostare l'indirizzo del broker MQTT.
+
+Installare Node-Red ed importare i flows. In seguito settare il broker MQTT nei rispettivi nodi Node-Red.
+Per aprire la dashboard aprire l'indirizzo: https://tuo.indirizzo.broker:1883/ui
+
