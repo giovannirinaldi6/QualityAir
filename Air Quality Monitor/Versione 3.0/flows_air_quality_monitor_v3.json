@@ -88,7 +88,8 @@
         "wires": [
             [
                 "0692aff8055b7e09",
-                "a7802c9105d92cc7"
+                "a7802c9105d92cc7",
+                "a759a53a73199b41"
             ]
         ]
     },
@@ -513,7 +514,8 @@
         "wires": [
             [
                 "986b403c29875f31",
-                "a7802c9105d92cc7"
+                "a7802c9105d92cc7",
+                "4d2f76980de5fbaa"
             ]
         ]
     },
@@ -1172,7 +1174,8 @@
         "y": 280,
         "wires": [
             [
-                "0daad3b10e95bc6a"
+                "0daad3b10e95bc6a",
+                "a759a53a73199b41"
             ]
         ]
     },
@@ -1220,7 +1223,8 @@
         "y": 1140,
         "wires": [
             [
-                "2e9a6354ea6444c2"
+                "2e9a6354ea6444c2",
+                "4d2f76980de5fbaa"
             ]
         ]
     },
@@ -1262,6 +1266,198 @@
         "wires": [
             [
                 "e613e03cc651e656"
+            ]
+        ]
+    },
+    {
+        "id": "56e518c4be03ba1c",
+        "type": "ui_chart",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "3cd142970def4be2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura e Temperatura percepita",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-5",
+        "ymax": "+60",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1510,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "icon": "font-awesome/fa-thermometer-2"
+    },
+    {
+        "id": "c87bec129e8524cd",
+        "type": "function",
+        "z": "7186ba0992b0aadf",
+        "name": "function 1",
+        "func": "var msg1 = {topic:\"temperature\",payload:msg.payload[0]};\nvar msg2 = { topic: \"hic\", payload: msg.payload[1] };\nreturn [msg1, msg2];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 240,
+        "wires": [
+            [
+                "56e518c4be03ba1c"
+            ],
+            [
+                "56e518c4be03ba1c"
+            ]
+        ]
+    },
+    {
+        "id": "a759a53a73199b41",
+        "type": "join",
+        "z": "7186ba0992b0aadf",
+        "name": "Join",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 790,
+        "y": 240,
+        "wires": [
+            [
+                "c87bec129e8524cd"
+            ]
+        ]
+    },
+    {
+        "id": "8a392104c3450985",
+        "type": "ui_chart",
+        "z": "7186ba0992b0aadf",
+        "name": "",
+        "group": "a6899e68a0ac7b12",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura e Temperatura percepita",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-5",
+        "ymax": "+60",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1470,
+        "y": 1100,
+        "wires": [
+            []
+        ],
+        "icon": "font-awesome/fa-thermometer-2"
+    },
+    {
+        "id": "457e70dd9bd22b35",
+        "type": "function",
+        "z": "7186ba0992b0aadf",
+        "name": "function 2",
+        "func": "var msg1 = {topic:\"temperature\",payload:msg.payload[0]};\nvar msg2 = { topic: \"hic\", payload: msg.payload[1] };\nreturn [msg1, msg2];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 1100,
+        "wires": [
+            [
+                "8a392104c3450985"
+            ],
+            [
+                "8a392104c3450985"
+            ]
+        ]
+    },
+    {
+        "id": "4d2f76980de5fbaa",
+        "type": "join",
+        "z": "7186ba0992b0aadf",
+        "name": "Join",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 750,
+        "y": 1100,
+        "wires": [
+            [
+                "457e70dd9bd22b35"
             ]
         ]
     },
@@ -1379,7 +1575,7 @@
         "id": "6372a04ee16c6b66",
         "type": "mqtt-broker",
         "name": "Prova",
-        "broker": "************",
+        "broker": "broker.hivemq.com",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
