@@ -1575,7 +1575,7 @@
         "id": "6372a04ee16c6b66",
         "type": "mqtt-broker",
         "name": "Prova",
-        "broker": "broker.hivemq.com",
+        "broker": "**************",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
