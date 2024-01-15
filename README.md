@@ -16,6 +16,15 @@ Per la realizzazione di ogni nodo per le rilevazioni:
 - DHT11 Sensor
 - MQ135 Sensor
 
+## Collegamenti hardware
+Su entrambe le schede ESP32 collegare il modulo LoRa come nello schema seguente:
+
+![ESP32-LoRa-SX1278-1](https://github.com/giovannirinaldi6/QualityAir/assets/34186044/2c427ba3-4a83-45de-a3d5-3df979a85910)
+
+### Collegamenti hardware solo nodi equipaggiati con sensori
+Collegare il sensore DHT11 al pin 4. Il sensore MQ-135 al pin 33.
+
+
 ## Librerie necessarie
 
 - LoRa.h
