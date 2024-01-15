@@ -40,5 +40,5 @@ Dopo aver effettuato i collegamenti hardware, su tutte le schede ESP32 configura
 Inoltre impostare l'indirizzo del broker MQTT.
 
 Installare Node-Red ed importare i flows. In seguito settare il broker MQTT nei rispettivi nodi Node-Red.
-Per aprire la dashboard aprire l'indirizzo: https://tuo.indirizzo.broker:1883/ui
+Per aprire la dashboard aprire l'indirizzo: https://tuo.indirizzo.broker:1880/ui
 
